@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#171717</color>
+    <color name="colorPrimaryDark">#171717</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="detail_view">#d0d0d0</color>
+    <color name="home_inform_font">#333333</color>
+    <color name="task_money_color">#fcb47f</color>
+    <color name="home_background">#f2f2f2</color>
+    <color name="text_font_little">#787878</color>
+    <color name="tablayout_bg">#292929</color>
+    <color name="bg">#171717</color>
+</resources>
