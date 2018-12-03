@@ -1,25 +1,46 @@
 package com.hardy.jaffa.myapplication.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.hardy.jaffa.myapplication.R;
+import com.hardy.jaffa.myapplication.ui.activity.LoginActivity;
+import com.hardy.jaffa.myapplication.ui.activity.RegistActivity;
+import com.hardy.jaffa.myapplication.utils.ImageLoaderUtils;
+import com.hardy.jaffa.myapplication.view.WaveView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class MeFragment extends Fragment {
+public class MeFragment extends Fragment implements View.OnClickListener {
 
-    @BindView(R.id.ll)
-    LinearLayout ll;
     Unbinder unbinder;
+    @BindView(R.id.wave_view)
+    WaveView waveView;
+    @BindView(R.id.img_logo)
+    ImageView imgLogo;
+    @BindView(R.id.login) //登录
+    TextView login;
+    @BindView(R.id.regist)  //注册
+    TextView regist;
+    @BindView(R.id.rl_check) //检查更新
+    RelativeLayout rlCheck;
+    @BindView(R.id.rl_about)//关于我们
+    RelativeLayout rlAbout;
+    @BindView(R.id.rl_clear)//清楚缓存
+    RelativeLayout rlClear;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,11 +58,48 @@ public class MeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initView();
+        setListener();
+    }
+
+    private void setListener() {
+        login.setOnClickListener(this);
+        regist.setOnClickListener(this);
+    }
+
+    private void initView() {
+        //设置头像跟着波浪背景浮动
+        ImageLoaderUtils.displayRound(getContext(), imgLogo, R.drawable.head);
+        final FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(-2, -2);
+        lp.gravity = Gravity.CENTER;
+        WaveView.setRangeY(20);
+        waveView.setOnWaveAnimationListener(new WaveView.OnWaveAnimationListener() {
+            @Override
+            public void OnWaveAnimation(float y) {
+                lp.setMargins(0, 0, 0, (int) y + 2);
+                imgLogo.setLayoutParams(lp);
+            }
+        });
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = null;
+        switch(v.getId()){
+            case R.id.login://登录界面
+                intent = new Intent(getContext(),LoginActivity.class);
+                break;
+            case R.id.regist://注册界面
+                intent = new Intent(getContext(),RegistActivity.class);
+                break;
+        }
+
+        startActivity(intent);
     }
 }

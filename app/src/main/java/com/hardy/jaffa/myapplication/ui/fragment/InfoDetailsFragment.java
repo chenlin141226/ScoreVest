@@ -62,6 +62,7 @@ public class InfoDetailsFragment extends Fragment {
 
     //设置详情页数据
     public void setData(List<ZixunInfoDetails> data) {
+        if(!isAdded())return;
         this.data = data;
         InforDetailsAdapter adapter = new InforDetailsAdapter(getContext(),R.layout.infor_details_item,data);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

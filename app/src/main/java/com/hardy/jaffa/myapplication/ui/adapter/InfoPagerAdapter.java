@@ -36,19 +36,4 @@ public class InfoPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return channelNames.get(position);
     }
-
-    public void setFragments(FragmentManager fm,List<String> channelNames1, List<Fragment> mFragmentList) {
-        this.channelNames = channelNames;
-        if (this.mFragmentList != null) {
-            FragmentTransaction ft = fm.beginTransaction();
-            for (Fragment f : this.mFragmentList) {
-                ft.remove(f);
-            }
-            ft.commitAllowingStateLoss();
-            ft = null;
-            fm.executePendingTransactions();
-        }
-        this.mFragmentList = mFragmentList;
-        notifyDataSetChanged();
-    }
 }

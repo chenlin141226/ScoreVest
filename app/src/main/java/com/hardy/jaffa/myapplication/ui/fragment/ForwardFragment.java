@@ -1,6 +1,5 @@
 package com.hardy.jaffa.myapplication.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,12 +9,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.hardy.jaffa.myapplication.R;
+import com.hardy.jaffa.myapplication.dagger.conponent.DaggerForwardFragmentConponent;
+import com.hardy.jaffa.myapplication.dagger.conponent.ForwardFragmentConponent;
+import com.hardy.jaffa.myapplication.dagger.module.ForwardFragmentModule;
+import com.hardy.jaffa.myapplication.model.PlayerInfo;
+import com.hardy.jaffa.myapplication.presenter.fragment.ForwardFragmentPresenter;
 import com.hardy.jaffa.myapplication.ui.adapter.ForwardAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,12 +32,18 @@ public class ForwardFragment extends Fragment {
     RecyclerView recyclerView;
 
     Unbinder unbinder;
-    private List<String> mData = new ArrayList<String>();
+    private List<PlayerInfo> data;
 
+    @Inject
+    ForwardFragmentPresenter presenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DaggerForwardFragmentConponent.Builder builder = DaggerForwardFragmentConponent.builder();
+        builder.forwardFragmentModule(new ForwardFragmentModule(this));
+        ForwardFragmentConponent conponent = builder.build();
+        conponent.in(this);
     }
 
     @Nullable
@@ -44,20 +54,24 @@ public class ForwardFragment extends Fragment {
         return view;
     }
 
-    private void initData() {
-        for (int i = 0; i < 20; i++) {
-            mData.add("RecyclerView item-" + i);
-        }
-
-        ForwardAdapter mAdapter = new ForwardAdapter(R.layout.home_forward_item,mData);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(mAdapter);
-    }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initData();
+    }
+
+
+    public void setData(List<PlayerInfo> data) {
+        this.data = data;
+
+//        ForwardAdapter mAdapter = new ForwardAdapter(getContext(),R.layout.home_forward_item,data);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        recyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getData();
     }
 
     @Override
@@ -65,4 +79,5 @@ public class ForwardFragment extends Fragment {
         super.onDestroyView();
         unbinder.unbind();
     }
+
 }

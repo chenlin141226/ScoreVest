@@ -10,4 +10,11 @@
     <color name="text_font_little">#787878</color>
     <color name="tablayout_bg">#292929</color>
     <color name="bg">#171717</color>
+
+
+
+    <color name="orange_most">#fcb47f</color>
+    <color name="orange_light">#fcb47f</color>
+    <color name="tv_gray_deep">#818181</color>
+    <color name="top_bar_normal_bg">#ec6f1a</color>
 </resources>

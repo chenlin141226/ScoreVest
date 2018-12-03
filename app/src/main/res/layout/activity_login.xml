@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="120dp">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_account"-->
+            <!--android:layout_width="19dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginBottom="4dp"-->
+            <!--android:layout_marginLeft="4dp"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/icon_login_account"/>-->
+
+        <EditText
+            android:id="@+id/et_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:background="@null"
+            android:hint="@string/account"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/tv_gray_deep"
+            android:textSize="14sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/orange_light"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp">
+
+        <!--<ImageView-->
+            <!--android:id="@+id/img_pw"-->
+            <!--android:layout_width="19dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginBottom="4dp"-->
+            <!--android:layout_marginLeft="4dp"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/icon_login_pw"/>-->
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:background="@null"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/tv_gray_deep"
+            android:textSize="14sp"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_see_password"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:src="@drawable/image_password_bg"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:scaleType="fitXY"-->
+            <!--/>-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/orange_light"/>
+    </RelativeLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="32dp"-->
+        <!--android:layout_marginRight="32dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--android:paddingBottom="8dp"-->
+        <!--android:paddingTop="8dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:gravity="center"-->
+        <!--&gt;-->
+        <!--<CheckBox-->
+            <!--android:id="@+id/checkBox_password"-->
+            <!--android:padding="@dimen/dp_10"-->
+            <!--android:textSize="14sp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/check_password"-->
+            <!--android:textColor="@color/top_bar_normal_bg" android:checked="false"/>-->
+        <!--<CheckBox-->
+            <!--android:id="@+id/checkBox_login"-->
+            <!--android:padding="@dimen/dp_10"-->
+            <!--android:textSize="14sp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/check_login"-->
+            <!--android:textColor="@color/top_bar_normal_bg" android:checked="false"/>-->
+
+    <!--</LinearLayout>-->
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="64dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:text="登陆"
+        android:background="@drawable/btn_orange_selector"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tv_regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="立即注册"
+        android:textColor="#ccc"
+        android:paddingLeft="32dp"
+        android:paddingTop="15dp"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

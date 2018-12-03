@@ -2,14 +2,169 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:id="@+id/ll"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/bg">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我的"
-        android:layout_gravity="center"/>
+    <!--    波浪背景和头像-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/tablayout_bg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center|top"
+            android:gravity="center"
+            android:text="个人中心"
+            android:textSize="20sp"
+            android:textColor="#fff" />
+
+        <com.hardy.jaffa.myapplication.view.WaveView
+            android:id="@+id/wave_view"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_gravity="bottom" />
+
+        <ImageView
+            android:id="@+id/img_logo"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|bottom">
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录/"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:layout_marginBottom="55dp"/>
+            <TextView
+                android:id="@+id/regist"
+                android:layout_toRightOf="@id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注册"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:layout_marginBottom="55dp"/>
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_check"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/tablayout_bg">
+
+        <ImageView
+            android:id="@+id/iv_check"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/checkupdata" />
+
+        <TextView
+            android:id="@+id/tv_check"
+            android:layout_toRightOf="@id/iv_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="15dp"
+            android:text="检查更新"
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/check_right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_marginRight="20dp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_about"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/tablayout_bg">
+
+        <ImageView
+            android:id="@+id/iv_about"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/we" />
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_toRightOf="@id/iv_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="15dp"
+            android:text="关于我们"
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/about_right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_marginRight="20dp"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_clear"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/tablayout_bg">
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/clear" />
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_toRightOf="@id/iv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="15dp"
+            android:text="清楚缓存"
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/clear_right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_marginRight="20dp"
+            />
+    </RelativeLayout>
 
 </LinearLayout>

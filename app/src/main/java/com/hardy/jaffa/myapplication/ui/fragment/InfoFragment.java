@@ -91,15 +91,7 @@ public class InfoFragment extends Fragment {
             //添加fragment
             mFragmentList.add(createListFragments(data.get(i)));
         }
-
-        if (fragmentAdapter == null) {
-
-            fragmentAdapter = new InfoPagerAdapter(getChildFragmentManager(), channelNames, mFragmentList);
-        } else {
-            //刷新fragment
-            fragmentAdapter.setFragments(getChildFragmentManager(), channelNames, mFragmentList);
-        }
-
+        fragmentAdapter = new InfoPagerAdapter(getChildFragmentManager(), channelNames, mFragmentList);
         mViewPager.setAdapter(fragmentAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
 

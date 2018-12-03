@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+
+import com.hardy.jaffa.myapplication.R;
 
 import butterknife.ButterKnife;
 
@@ -112,4 +115,18 @@ public abstract class BaseActivity extends AppCompatActivity {
         return bundle;
     }
 
+
+    /**
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return true;
+    }
 }

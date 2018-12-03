@@ -1,5 +1,6 @@
 package com.hardy.jaffa.myapplication.presenter.api;
 
+import com.hardy.jaffa.myapplication.model.PlayerInfo;
 import com.hardy.jaffa.myapplication.model.ZixunInfo;
 import com.hardy.jaffa.myapplication.model.ZixunInfoDetails;
 import com.hardy.jaffa.myapplication.utils.Constant;
@@ -45,6 +46,12 @@ public interface ResponseInfoAPI {
                     int startPage,
             @Query("pageSize")
                     int endPage
+    );
+
+    @GET(Constant.PLAYER_INFO)
+    Call<List<PlayerInfo>> getPlayerInfo(
+            @Query("playerIdByTeamId")
+                    String id
     );
 
 //    @FormUrlEncoded
