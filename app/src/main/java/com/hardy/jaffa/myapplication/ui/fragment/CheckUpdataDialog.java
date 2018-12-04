@@ -22,6 +22,7 @@ public class CheckUpdataDialog extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //设置背景透明
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -31,6 +32,7 @@ public class CheckUpdataDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_update,null);
         builder.setView(view);
+
         return builder.create();
 
     }
