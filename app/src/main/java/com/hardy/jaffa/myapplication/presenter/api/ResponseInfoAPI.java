@@ -50,7 +50,7 @@ public interface ResponseInfoAPI {
 
     @GET(Constant.PLAYER_INFO)
     Call<List<PlayerInfo>> getPlayerInfo(
-            @Query("playerIdByTeamId")
+            @Query(value = "playerIdByTeamId",encoded = true)
                     String id
     );
 

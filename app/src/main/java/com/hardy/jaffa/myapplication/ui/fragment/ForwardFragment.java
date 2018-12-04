@@ -61,11 +61,11 @@ public class ForwardFragment extends Fragment {
 
 
     public void setData(List<PlayerInfo> data) {
+        if(!isAdded())return;
         this.data = data;
-
-//        ForwardAdapter mAdapter = new ForwardAdapter(getContext(),R.layout.home_forward_item,data);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        recyclerView.setAdapter(mAdapter);
+        ForwardAdapter mAdapter = new ForwardAdapter(getContext(),R.layout.home_forward_item,data);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(mAdapter);
     }
 
     @Override

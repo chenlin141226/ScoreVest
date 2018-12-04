@@ -1,10 +1,8 @@
 package com.hardy.jaffa.myapplication.presenter.fragment;
 
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
-import com.hardy.jaffa.myapplication.model.VodBean;
-import com.hardy.jaffa.myapplication.model.ZixunInfo;
 import com.hardy.jaffa.myapplication.presenter.api.ResponseInfoAPI;
-import com.hardy.jaffa.myapplication.ui.fragment.ForwardFragment;
+import com.hardy.jaffa.myapplication.ui.fragment.GuardFragment;
 import com.hardy.jaffa.myapplication.utils.Constant;
 
 import java.util.List;
@@ -15,12 +13,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ForwardFragmentPresenter {
-
-    private ForwardFragment fragment;
+public class GuardFragmentPresenter {
+    private GuardFragment fragment;
     private ResponseInfoAPI responseInfoAPI;
 
-    public ForwardFragmentPresenter(ForwardFragment fragment) {
+    public GuardFragmentPresenter(GuardFragment fragment) {
         this.fragment = fragment;
         // 第一次初始化完成后，所有子类都可以使用
         if (responseInfoAPI == null) {
@@ -37,7 +34,7 @@ public class ForwardFragmentPresenter {
      * 获取资讯数据
      */
     public void getData() {
-        Call<List<PlayerInfo>> call = responseInfoAPI.getPlayerInfo(Constant.player1);
+        Call<List<PlayerInfo>> call = responseInfoAPI.getPlayerInfo(Constant.player3);
         call.enqueue(new Callback<List<PlayerInfo>>() {
 
             @Override
@@ -58,10 +55,7 @@ public class ForwardFragmentPresenter {
         });
     }
 
-
     private void parseData(List<PlayerInfo> info) {
         fragment.setData(info);
     }
-
-
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,7 +40,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     RelativeLayout rlCheck;
     @BindView(R.id.rl_about)//关于我们
     RelativeLayout rlAbout;
-    @BindView(R.id.rl_clear)//清楚缓存
+    @BindView(R.id.rl_clear)//清除缓存
     RelativeLayout rlClear;
 
     @Override
@@ -65,6 +66,9 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     private void setListener() {
         login.setOnClickListener(this);
         regist.setOnClickListener(this);
+        rlCheck.setOnClickListener(this);
+        rlAbout.setOnClickListener(this);
+        rlClear.setOnClickListener(this);
     }
 
     private void initView() {
@@ -94,12 +98,25 @@ public class MeFragment extends Fragment implements View.OnClickListener {
         switch(v.getId()){
             case R.id.login://登录界面
                 intent = new Intent(getContext(),LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.regist://注册界面
                 intent = new Intent(getContext(),RegistActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.rl_check://检查更新
+                CheckUpdataDialog fragment= new CheckUpdataDialog();
+                //fragment.setTargetFragment(this, REQUEST_CODE);
+                fragment.show(getChildFragmentManager(), "login");
+                break;
+            case R.id.rl_about://关于我们
+
+                break;
+            case R.id.rl_clear://清除缓存
+
                 break;
         }
 
-        startActivity(intent);
+
     }
 }

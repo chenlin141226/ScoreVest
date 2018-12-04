@@ -1,15 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:textColor="@android:color/white"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall" />
+    android:layout_height="180dp"
+    android:background="@color/colorPrimary"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/limeixi"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tv_chineseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="里奥.梅西"
+            android:layout_marginTop="5dp"
+            android:textColor="#FFF"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tv_EnglisgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="里奥.梅西"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFF"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_date"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="出生日期: 2011-06-03"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:textColor="#666666"/>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_teanName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="球队:巴塞罗那"
+            android:textColor="@color/orange_light"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="70dp"/>
+
+        <TextView
+            android:id="@+id/tv_teamNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="球衣号码: 10"
+            android:textColor="#666666"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_teamPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="位置: 前锋"
+            android:textColor="#666666"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="国际:阿根廷"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/orange_light"
+            android:layout_marginTop="70dp"/>
+
+        <TextView
+            android:id="@+id/tv_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="身高: 170"
+            android:textColor="#666666"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="体重: 72"
+            android:textColor="#666666"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
 </LinearLayout>
