@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public class DataServer {
 
     public static ArrayList<WheelBean> getWheelData() {
-        int[] res = {R.drawable.banner_1, R.drawable.banner_2, R.drawable.banner_3};
-        String [] des = {"激流涌进","勇往直前","五大联赛"};
+        int[] res = {R.drawable.banner_1, R.drawable.banner_2, R.drawable.banner_3,R.drawable.banner4};
+        String [] des = {"激流涌进","勇往直前","五大联赛",""};
         ArrayList<WheelBean> list = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 4; i++) {
             WheelBean bean = new WheelBean();
             bean.setUrl(res[i]);
             bean.setDes(des[i]);

@@ -8,6 +8,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hardy.jaffa.myapplication.R;
+import com.hardy.jaffa.myapplication.dagger.conponent.DaggerRegistActivityConponent;
+import com.hardy.jaffa.myapplication.dagger.conponent.RegistActivityConponent;
+import com.hardy.jaffa.myapplication.dagger.module.RegistActivityModule;
+import com.hardy.jaffa.myapplication.presenter.activity.RegistActivityPresenter;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +30,9 @@ public class RegistActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+    @Inject
+    RegistActivityPresenter presenter;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_regist;
@@ -32,6 +41,10 @@ public class RegistActivity extends BaseActivity {
     @Override
     protected void initInjector() {
         super.initInjector();
+        DaggerRegistActivityConponent.Builder builder = DaggerRegistActivityConponent.builder();
+        builder.registActivityModule(new RegistActivityModule(this));
+        RegistActivityConponent conponent = builder.build();
+        conponent.in(this);
     }
 
     @Override
@@ -42,15 +55,23 @@ public class RegistActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        initToolBar(toolbar,true,"");
-       tvTitle.setText("账号注册");
+        initToolBar(toolbar, true, "");
+        tvTitle.setText("账号注册");
 
 
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    protected void onResume() {
+        super.onResume();
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home){
+           finish();
+        }
         return super.onOptionsItemSelected(item);
     }
 }

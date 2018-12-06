@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hardy.jaffa.myapplication.R;
+import com.hardy.jaffa.myapplication.ui.activity.AboutActivity;
 import com.hardy.jaffa.myapplication.ui.activity.LoginActivity;
 import com.hardy.jaffa.myapplication.ui.activity.RegistActivity;
 import com.hardy.jaffa.myapplication.utils.ImageLoaderUtils;
@@ -110,7 +111,8 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 fragment.show(getChildFragmentManager(), "login");
                 break;
             case R.id.rl_about://关于我们
-
+                intent = new Intent(getContext(),AboutActivity.class);
+                startActivity(intent);
                 break;
             case R.id.rl_clear://清除缓存
 

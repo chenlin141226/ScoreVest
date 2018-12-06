@@ -1,6 +1,7 @@
 package com.hardy.jaffa.myapplication.presenter.api;
 
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
+import com.hardy.jaffa.myapplication.model.Token;
 import com.hardy.jaffa.myapplication.model.ZixunInfo;
 import com.hardy.jaffa.myapplication.model.ZixunInfoDetails;
 import com.hardy.jaffa.myapplication.utils.Constant;
@@ -52,6 +53,22 @@ public interface ResponseInfoAPI {
     Call<List<PlayerInfo>> getPlayerInfo(
             @Query(value = "playerIdByTeamId",encoded = true)
                     String id
+    );
+
+    @GET(Constant.TOKEN)
+    Call<Token> getAccessToken(
+            @Query("app_id")
+                    String app_id,
+            @Query("app_secret")
+                    String app_secret,
+            @Query("signature")
+                    String signature,
+            @Query("device_id")
+                    String device_id,
+            @Query("rand_str")
+                    String rand_str,
+            @Query("timestamp")
+                    long timestamp
     );
 
 //    @FormUrlEncoded

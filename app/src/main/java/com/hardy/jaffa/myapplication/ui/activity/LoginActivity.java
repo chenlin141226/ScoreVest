@@ -10,6 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hardy.jaffa.myapplication.R;
+import com.hardy.jaffa.myapplication.dagger.conponent.DaggerLoginActivityConponent;
+import com.hardy.jaffa.myapplication.dagger.conponent.LoginActivityConponent;
+import com.hardy.jaffa.myapplication.dagger.module.LoginActivityModule;
+import com.hardy.jaffa.myapplication.presenter.activity.LoginActivityPresenter;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +36,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @BindView(R.id.tv_regist)
     TextView tvRegist;
 
+    @Inject
+    LoginActivityPresenter presenter;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
@@ -38,6 +47,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initInjector() {
         super.initInjector();
+        DaggerLoginActivityConponent.Builder builder = DaggerLoginActivityConponent.builder();
+        builder.loginActivityModule(new LoginActivityModule(this));
+        LoginActivityConponent conponent = builder.build();
+        conponent.in(this);
     }
 
     @Override

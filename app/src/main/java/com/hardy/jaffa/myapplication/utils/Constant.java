@@ -33,4 +33,8 @@ public interface Constant {
             "2C521218_3113%2C33570_3532%2C28983_3532%2C20046_3282%2C238343250_3271\n" +
             "%2C20719_3046";
 
+    //AccessToken
+    String TOKEN_BASE="http://iapi.manxwork.com/api/";
+    String TOKEN ="5c05055cc2480";
+
 }

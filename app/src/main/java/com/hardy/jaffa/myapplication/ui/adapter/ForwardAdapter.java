@@ -10,7 +10,9 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.hardy.jaffa.myapplication.R;
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
 import com.hardy.jaffa.myapplication.utils.Constant;
+import com.hardy.jaffa.myapplication.utils.TimeUtils;
 
+import java.sql.Time;
 import java.util.List;
 
 public class ForwardAdapter extends BaseQuickAdapter<PlayerInfo, BaseViewHolder> {
@@ -36,5 +38,8 @@ public class ForwardAdapter extends BaseQuickAdapter<PlayerInfo, BaseViewHolder>
         helper.setText(R.id.tv_country,"国籍: "+item.getCountryNameChi());
         helper.setText(R.id.tv_height,"身高: "+item.getHeight());
         helper.setText(R.id.tv_weight,"体重: "+item.getWeight());
+        long dateOfBirth = item.getDateOfBirth();
+        String str = TimeUtils.stampToTime(dateOfBirth,"yyyy-MM-dd");
+        helper.setText(R.id.tv_date, str);
     }
 }
