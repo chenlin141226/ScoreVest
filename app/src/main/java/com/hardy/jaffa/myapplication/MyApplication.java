@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
 import com.hardy.jaffa.myapplication.model.Token;
+import com.hardy.jaffa.myapplication.model.UserLoginState;
 import com.hardy.jaffa.myapplication.presenter.api.ResponseInfoAPI;
 import com.hardy.jaffa.myapplication.utils.Constant;
 import com.hardy.jaffa.myapplication.utils.TimeUtils;
@@ -36,6 +37,7 @@ public class MyApplication extends Application {
     private  String device_id ;//设备唯一ID
     private  String rand_str ;//随机字符串
     private  long timestamp;//当前系统时间戳
+    public static UserLoginState userLoginState;
 
     @Override
     public void onCreate() {

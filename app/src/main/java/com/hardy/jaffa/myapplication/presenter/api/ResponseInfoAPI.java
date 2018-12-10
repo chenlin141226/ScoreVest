@@ -2,6 +2,8 @@ package com.hardy.jaffa.myapplication.presenter.api;
 
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
 import com.hardy.jaffa.myapplication.model.Token;
+import com.hardy.jaffa.myapplication.model.UserLoginState;
+import com.hardy.jaffa.myapplication.model.UserState;
 import com.hardy.jaffa.myapplication.model.ZixunInfo;
 import com.hardy.jaffa.myapplication.model.ZixunInfoDetails;
 import com.hardy.jaffa.myapplication.utils.Constant;
@@ -9,7 +11,12 @@ import com.hardy.jaffa.myapplication.utils.Constant;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -19,7 +26,7 @@ public interface ResponseInfoAPI {
 
 
 //    /**
-//     * 传统方式登陆
+//     * 传统方式登录
 //     * @param username
 //     * @param password
 //     * @return
@@ -71,8 +78,20 @@ public interface ResponseInfoAPI {
                     long timestamp
     );
 
-//    @FormUrlEncoded
-//    @POST(Constant.ORDER)
-//    Call<ZixunInfo> creatOrder(@Field("orderOverview") String json);
+    @FormUrlEncoded
+    @POST(Constant.LoginUrl)
+    @Headers("version:v3.0")
+    Call<UserLoginState> Login(@Field("username") String username, @Field("password") String password);
 
+    @GET(Constant.LogoutUrl)
+    @Headers("version:v3.0")
+    Call<UserState> Logout();
+
+    @FormUrlEncoded
+    @POST(Constant.RegisterUrl)
+    @Headers("version:v3.0")
+    Call<UserState> Register(@Field("username") String username,
+                             @Field("nickname") String nickname,
+                             @Field("phone") String phone,
+                             @Field("password") String password);
 }

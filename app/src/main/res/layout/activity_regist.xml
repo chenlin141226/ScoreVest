@@ -14,6 +14,34 @@
         android:layout_marginRight="32dp"
         android:layout_marginTop="120dp">
 
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:background="@null"
+            android:hint="@string/register_name"
+            android:maxLines="1"
+            android:inputType="text"
+            android:textColor="@android:color/white"
+            android:textColorHint="@color/tv_gray_deep"
+            android:textSize="14sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/orange_light"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        >
+
 
         <EditText
             android:id="@+id/et_account"
@@ -25,6 +53,7 @@
             android:background="@null"
             android:hint="@string/regist_account"
             android:maxLines="1"
+            android:inputType="phone"
             android:textColor="@android:color/white"
             android:textColorHint="@color/tv_gray_deep"
             android:textSize="14sp"/>
@@ -65,7 +94,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"

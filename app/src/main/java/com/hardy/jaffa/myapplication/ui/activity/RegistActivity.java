@@ -3,7 +3,6 @@ package com.hardy.jaffa.myapplication.ui.activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,21 +16,22 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class RegistActivity extends BaseActivity {
     @BindView(R.id.et_account)
     EditText etAccount;
     @BindView(R.id.et_password)
     EditText etPassword;
-    @BindView(R.id.btn_login)
-    Button btnLogin;
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-
+    @BindView(R.id.et_username)
+    EditText etUsername;
     @Inject
     RegistActivityPresenter presenter;
+
 
     @Override
     protected int getLayoutId() {
@@ -57,8 +57,6 @@ public class RegistActivity extends BaseActivity {
         super.initView();
         initToolBar(toolbar, true, "");
         tvTitle.setText("账号注册");
-
-
     }
 
     @Override
@@ -69,9 +67,22 @@ public class RegistActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-           finish();
+        if (item.getItemId() == android.R.id.home) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.btn_register)
+    public void onViewClicked() {
+        presenter.Register(etUsername.getText().toString(), etUsername.getText().toString(),
+                etAccount.getText().toString(), etPassword.getText().toString());
     }
 }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.hardy.jaffa.myapplication.MyApplication;
 import com.hardy.jaffa.myapplication.R;
 import com.hardy.jaffa.myapplication.ui.activity.AboutActivity;
 import com.hardy.jaffa.myapplication.ui.activity.LoginActivity;
@@ -34,15 +34,17 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.img_logo)
     ImageView imgLogo;
     @BindView(R.id.login) //登录
-    TextView login;
+            TextView login;
     @BindView(R.id.regist)  //注册
-    TextView regist;
+            TextView regist;
     @BindView(R.id.rl_check) //检查更新
-    RelativeLayout rlCheck;
+            RelativeLayout rlCheck;
     @BindView(R.id.rl_about)//关于我们
-    RelativeLayout rlAbout;
+            RelativeLayout rlAbout;
     @BindView(R.id.rl_clear)//清除缓存
-    RelativeLayout rlClear;
+            RelativeLayout rlClear;
+    @BindView(R.id.username)
+    TextView username;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -94,24 +96,40 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (MyApplication.userLoginState==null||MyApplication.userLoginState.getData()==null
+                ||MyApplication.userLoginState.getData().getUsername()==null){
+            username.setVisibility(View.GONE);
+            login.setVisibility(View.VISIBLE);
+            regist.setVisibility(View.VISIBLE);
+            return;
+        }
+        username.setText(MyApplication.userLoginState.getData().getUsername());
+        username.setVisibility(View.VISIBLE);
+        login.setVisibility(View.GONE);
+        regist.setVisibility(View.GONE);
+    }
+
+    @Override
     public void onClick(View v) {
         Intent intent = null;
-        switch(v.getId()){
+        switch (v.getId()) {
             case R.id.login://登录界面
-                intent = new Intent(getContext(),LoginActivity.class);
+                intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
                 break;
             case R.id.regist://注册界面
-                intent = new Intent(getContext(),RegistActivity.class);
+                intent = new Intent(getContext(), RegistActivity.class);
                 startActivity(intent);
                 break;
             case R.id.rl_check://检查更新
-                CheckUpdataDialog fragment= new CheckUpdataDialog();
+                CheckUpdataDialog fragment = new CheckUpdataDialog();
                 //fragment.setTargetFragment(this, REQUEST_CODE);
                 fragment.show(getChildFragmentManager(), "login");
                 break;
             case R.id.rl_about://关于我们
-                intent = new Intent(getContext(),AboutActivity.class);
+                intent = new Intent(getContext(), AboutActivity.class);
                 startActivity(intent);
                 break;
             case R.id.rl_clear://清除缓存

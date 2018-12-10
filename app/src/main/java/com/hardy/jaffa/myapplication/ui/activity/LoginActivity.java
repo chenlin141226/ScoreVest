@@ -1,7 +1,6 @@
 package com.hardy.jaffa.myapplication.ui.activity;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -19,8 +18,9 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity {
 
 
     @BindView(R.id.tv_title)
@@ -61,29 +61,31 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void initView() {
         super.initView();
-        tvTitle.setText("账号登陆");
+        tvTitle.setText("账号登录");
     }
 
     @Override
     protected void setListener() {
         super.setListener();
-        tvRegist.setOnClickListener(this);
-        btnLogin.setOnClickListener(this);
     }
 
     @Override
-    public void onClick(View v) {
-        Intent intent = null;
-        switch (v.getId()){
-            case R.id.tv_regist:
-                intent = new Intent(this,RegistActivity.class);
-                finish();
-                break;
-            case R.id.btn_login:
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 
+    @OnClick({R.id.btn_login, R.id.tv_regist})
+    public void onViewClicked(View view) {
+
+        switch (view.getId()) {
+            case R.id.btn_login:
+                presenter.Login(etAccount.getText().toString(), etPassword.getText().toString());
+                break;
+            case R.id.tv_regist:
+                presenter.ToggleActivity(RegistActivity.class);
                 break;
         }
-
-        startActivity(intent);
     }
 }
