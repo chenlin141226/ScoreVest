@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hardy.jaffa.myapplication.R;
 import com.hardy.jaffa.myapplication.dagger.conponent.DaggerInfoDetailsFragmentConponent;
 import com.hardy.jaffa.myapplication.dagger.conponent.InfoDetailsFragmentConponent;
@@ -18,6 +19,7 @@ import com.hardy.jaffa.myapplication.dagger.module.InfoDetailsFragmentModule;
 import com.hardy.jaffa.myapplication.model.ZixunInfoDetails;
 import com.hardy.jaffa.myapplication.presenter.fragment.InfoDetailsFragmentPresenter;
 import com.hardy.jaffa.myapplication.ui.adapter.InforDetailsAdapter;
+import com.hardy.jaffa.myapplication.ui.dialogs.CheckUpdataDialog;
 
 import java.util.List;
 
@@ -67,6 +69,14 @@ public class InfoDetailsFragment extends Fragment {
         InforDetailsAdapter adapter = new InforDetailsAdapter(getContext(),R.layout.infor_details_item,data);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                CheckUpdataDialog fragment = new CheckUpdataDialog();
+                //fragment.setTargetFragment(this, REQUEST_CODE);
+                fragment.show(getChildFragmentManager(), "login");
+            }
+        });
     }
 
     @Override

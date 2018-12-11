@@ -1,4 +1,4 @@
-package com.hardy.jaffa.myapplication.ui.fragment;
+package com.hardy.jaffa.myapplication.ui.dialogs;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -18,11 +18,10 @@ import com.hardy.jaffa.myapplication.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
-
-public class CheckUpdataDialog extends DialogFragment implements View.OnClickListener {
-
+public class ClearCacheDialog extends DialogFragment {
     @BindView(R.id.btn_updata)
     Button btnUpdata;
     @BindView(R.id.iv_cancle)
@@ -38,11 +37,6 @@ public class CheckUpdataDialog extends DialogFragment implements View.OnClickLis
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    private void initView() {
-        btnUpdata.setOnClickListener(this);
-        ivCancle.setOnClickListener(this);
-    }
-
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -50,7 +44,6 @@ public class CheckUpdataDialog extends DialogFragment implements View.OnClickLis
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_update1, null);
         unbinder = ButterKnife.bind(this, view);
         builder.setView(view);
-        initView();
         return builder.create();
 
     }
@@ -60,15 +53,14 @@ public class CheckUpdataDialog extends DialogFragment implements View.OnClickLis
         super.onDestroyView();
         unbinder.unbind();
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.iv_cancle://取消对话框
-                 dismiss();
+    @OnClick({R.id.btn_updata, R.id.iv_cancle})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btn_updata:
+                dismiss();
                 break;
-            case R.id.btn_updata://跳转到连接
-
+            case R.id.iv_cancle:
+                dismiss();
                 break;
         }
     }

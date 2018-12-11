@@ -19,6 +19,8 @@ import com.hardy.jaffa.myapplication.R;
 import com.hardy.jaffa.myapplication.ui.activity.AboutActivity;
 import com.hardy.jaffa.myapplication.ui.activity.LoginActivity;
 import com.hardy.jaffa.myapplication.ui.activity.RegistActivity;
+import com.hardy.jaffa.myapplication.ui.dialogs.CheckUpdataDialog;
+import com.hardy.jaffa.myapplication.ui.dialogs.ClearCacheDialog;
 import com.hardy.jaffa.myapplication.utils.ImageLoaderUtils;
 import com.hardy.jaffa.myapplication.view.WaveView;
 
@@ -133,7 +135,9 @@ public class MeFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.rl_clear://清除缓存
-
+                ClearCacheDialog clearCacheDialog = new ClearCacheDialog();
+                //fragment.setTargetFragment(this, REQUEST_CODE);
+                clearCacheDialog.show(getChildFragmentManager(), "login");
                 break;
         }
 

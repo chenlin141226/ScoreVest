@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
 
     // 添加Retrofit依赖
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     // 使用Gson进行数据解析
     implementation 'com.google.code.gson:gson:2.8.5'
     // 将Retorfit与Gson关联
@@ -67,5 +67,5 @@ dependencies {
     implementation 'io.reactivex:rxandroid:1.1.0'
     implementation 'io.reactivex:rxjava:1.1.0'
 
-
+    implementation project(':updata')
 }
