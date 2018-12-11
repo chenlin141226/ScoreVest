@@ -128,7 +128,7 @@ public class MeFragment extends Fragment implements View.OnClickListener {
             case R.id.rl_check://检查更新
                 CheckUpdataDialog fragment = new CheckUpdataDialog();
                 //fragment.setTargetFragment(this, REQUEST_CODE);
-                fragment.show(getChildFragmentManager(), "login");
+                fragment.show(getChildFragmentManager(), "update");
                 break;
             case R.id.rl_about://关于我们
                 intent = new Intent(getContext(), AboutActivity.class);

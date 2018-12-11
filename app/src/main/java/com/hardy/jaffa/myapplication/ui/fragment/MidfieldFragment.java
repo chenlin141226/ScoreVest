@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hardy.jaffa.myapplication.R;
 import com.hardy.jaffa.myapplication.dagger.conponent.DaggerMidfielFragmentConponent;
 import com.hardy.jaffa.myapplication.dagger.conponent.MidfielFragmentConponent;
@@ -18,6 +19,7 @@ import com.hardy.jaffa.myapplication.dagger.module.MidfielFragmentModule;
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
 import com.hardy.jaffa.myapplication.presenter.fragment.MidfieldFragmentPresenter;
 import com.hardy.jaffa.myapplication.ui.adapter.ForwardAdapter;
+import com.hardy.jaffa.myapplication.ui.dialogs.CheckUpdataDialog;
 
 import java.util.List;
 
@@ -65,6 +67,14 @@ public class MidfieldFragment extends Fragment {
         ForwardAdapter mAdapter = new ForwardAdapter(getContext(),R.layout.home_forward_item,data);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                CheckUpdataDialog fragment = new CheckUpdataDialog();
+                //fragment.setTargetFragment(this, REQUEST_CODE);
+                fragment.show(getChildFragmentManager(), "update");
+            }
+        });
     }
 
     @Override

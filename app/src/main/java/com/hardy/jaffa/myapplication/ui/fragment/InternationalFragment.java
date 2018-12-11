@@ -57,7 +57,7 @@ public class InternationalFragment extends Fragment {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 CheckUpdataDialog fragment = new CheckUpdataDialog();
                 //fragment.setTargetFragment(this, REQUEST_CODE);
-                fragment.show(getChildFragmentManager(), "login");
+                fragment.show(getChildFragmentManager(), "update");
             }
         });
     }

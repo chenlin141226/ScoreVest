@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hardy.jaffa.myapplication.R;
 import com.hardy.jaffa.myapplication.dagger.conponent.DaggerGuardFragmentConponent;
 import com.hardy.jaffa.myapplication.dagger.conponent.GuardFragmentConponent;
@@ -17,6 +18,7 @@ import com.hardy.jaffa.myapplication.dagger.module.GuardFragmentModule;
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
 import com.hardy.jaffa.myapplication.presenter.fragment.GuardFragmentPresenter;
 import com.hardy.jaffa.myapplication.ui.adapter.ForwardAdapter;
+import com.hardy.jaffa.myapplication.ui.dialogs.CheckUpdataDialog;
 
 import java.util.List;
 
@@ -60,6 +62,14 @@ public class GuardFragment extends Fragment {
         ForwardAdapter mAdapter = new ForwardAdapter(getContext(),R.layout.home_forward_item,data);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(mAdapter);
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                CheckUpdataDialog fragment = new CheckUpdataDialog();
+                //fragment.setTargetFragment(this, REQUEST_CODE);
+                fragment.show(getChildFragmentManager(), "update");
+            }
+        });
     }
 
     @Override
