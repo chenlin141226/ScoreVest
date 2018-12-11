@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.hardy.jaffa.myapplication.R;
 import com.hardy.jaffa.myapplication.ui.fragment.HomeFragment;
@@ -88,7 +87,7 @@ public class MainActivity extends BaseActivity {
      * @param index
      */
     private void changeUi(int index) {
-        Toast.makeText(this,""+index,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,""+index,Toast.LENGTH_SHORT).show();
 
         int childCount = mainBottomeSwitcherContainer.getChildCount();
 

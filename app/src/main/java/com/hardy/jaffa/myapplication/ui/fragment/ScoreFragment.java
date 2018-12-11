@@ -64,6 +64,7 @@ public class ScoreFragment extends Fragment {
         mViewPager.setAdapter(mPagerAdapter);
         mPagerAdapter.setTitles(tabs);
         mTabLayout.setupWithViewPager(mViewPager);
+        mViewPager.setCurrentItem(0);
     }
 
     private void initData() {

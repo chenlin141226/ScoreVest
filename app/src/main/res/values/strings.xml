@@ -11,5 +11,13 @@
     <string name="check_login">自动登录</string>
     <string name="login">登录</string>
     <string name="loading">正在加载数据</string>
+    <string name="score_state">Score State</string>
+    <string name="time">08:30</string>
+    <string name="race_row">意甲第26轮</string>
+    <string name="race_team_one">尤文图斯</string>
+    <string name="race_team_two">史博尔</string>
+    <string name="score_team_one">3</string>
+    <string name="score_team_two">1</string>
+    <string name="today_time">今天 12月12日 星期二</string>
 
 </resources>

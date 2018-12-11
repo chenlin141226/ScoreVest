@@ -4,11 +4,17 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
-
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="热门"
-        android:textColor="#fff"/>
-
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:padding="@dimen/dp_10"
+        android:text="@string/today_time"
+        android:background="#171717"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/score_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
