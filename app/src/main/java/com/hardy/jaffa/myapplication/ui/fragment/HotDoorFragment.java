@@ -12,12 +12,18 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hardy.jaffa.myapplication.R;
+import com.hardy.jaffa.myapplication.dagger.conponent.DaggerHotDoorFragmentComponent;
+import com.hardy.jaffa.myapplication.dagger.conponent.HotDoorFragmentComponent;
+import com.hardy.jaffa.myapplication.dagger.module.HotDoorFragmentModule;
 import com.hardy.jaffa.myapplication.model.RaceScoreState;
+import com.hardy.jaffa.myapplication.presenter.fragment.HotDoorFragmentPresenter;
 import com.hardy.jaffa.myapplication.ui.adapter.RaceScoreAdapter;
 import com.hardy.jaffa.myapplication.ui.dialogs.CheckUpdataDialog;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,9 +37,17 @@ public class HotDoorFragment extends Fragment {
 
     private List<RaceScoreState> scoreStateList;
 
+    @Inject
+    HotDoorFragmentPresenter presenter;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DaggerHotDoorFragmentComponent.Builder builder = DaggerHotDoorFragmentComponent.builder();
+        builder.hotDoorFragmentModule(new HotDoorFragmentModule(this));
+        HotDoorFragmentComponent component = builder.build();
+        component.in(this);
+
     }
 
     @Nullable
@@ -53,7 +67,7 @@ public class HotDoorFragment extends Fragment {
     public void onResume() {
         super.onResume();
         initData();
-        RaceScoreAdapter adapter=new RaceScoreAdapter(R.layout.score_item, scoreStateList);
+        RaceScoreAdapter adapter = new RaceScoreAdapter(R.layout.score_item, scoreStateList);
         scoreRecyclerView.setAdapter(adapter);
         scoreRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

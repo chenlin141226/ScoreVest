@@ -40,4 +40,6 @@ public interface Constant {
     String LoginUrl = "5c04f924cd918";
     String RegisterUrl = "5c0760de8cfa3";
     String LogoutUrl = "5c0729175bc9d";
+
+    String RaceDataUrl = "5c0a315c678fe";
 }

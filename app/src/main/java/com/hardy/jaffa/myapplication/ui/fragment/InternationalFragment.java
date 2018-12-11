@@ -12,12 +12,18 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.hardy.jaffa.myapplication.R;
+import com.hardy.jaffa.myapplication.dagger.conponent.DaggerInternationalFragmentComponent;
+import com.hardy.jaffa.myapplication.dagger.conponent.InternationalFragmentComponent;
+import com.hardy.jaffa.myapplication.dagger.module.InternationalFragmentModule;
 import com.hardy.jaffa.myapplication.model.RaceScoreState;
+import com.hardy.jaffa.myapplication.presenter.fragment.InternationalFragmentPresenter;
 import com.hardy.jaffa.myapplication.ui.adapter.RaceScoreAdapter;
 import com.hardy.jaffa.myapplication.ui.dialogs.CheckUpdataDialog;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,10 +34,19 @@ public class InternationalFragment extends Fragment {
     RecyclerView scoreRecyclerView;
     Unbinder unbinder;
     private List<RaceScoreState> scoreStateList;
+    @Inject
+    InternationalFragmentPresenter presenter;
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DaggerInternationalFragmentComponent.Builder builder = DaggerInternationalFragmentComponent.builder();
+        builder.internationalFragmentModule(new InternationalFragmentModule(this));
+        InternationalFragmentComponent component = builder.build();
+        component.in(this);
     }
+
 
     @Nullable
     @Override
@@ -45,11 +60,12 @@ public class InternationalFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
     @Override
     public void onResume() {
         super.onResume();
         initData();
-        RaceScoreAdapter adapter=new RaceScoreAdapter(R.layout.score_item, scoreStateList);
+        RaceScoreAdapter adapter = new RaceScoreAdapter(R.layout.score_item, scoreStateList);
         scoreRecyclerView.setAdapter(adapter);
         scoreRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -61,11 +77,13 @@ public class InternationalFragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
     }
+
     private void initData() {
         scoreStateList = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
