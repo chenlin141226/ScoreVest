@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#292929"
         android:baselineAligned="false"
         android:orientation="horizontal"
@@ -16,18 +15,16 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.1"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/race_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/yijia"
-                android:drawablePadding="5dp"
-                android:text="@string/time"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/race_row"
@@ -41,72 +38,78 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1.2"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/race_team_one"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:drawableStart="@drawable/youwen"
-                android:text="@string/race_team_one"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/team_one_logo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/logo" />
 
-            <TextView
-                android:id="@+id/race_team_two"
+                <TextView
+                    android:id="@+id/race_team_one"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/race_team_one"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:drawablePadding="5dp"
-                android:drawableStart="@drawable/spr"
-                android:text="@string/race_team_two"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/team_two_logo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="centerCrop"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@string/logo" />
+
+                <TextView
+                    android:id="@+id/race_team_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/race_team_one"
+                    android:layout_margin="5dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:text="@string/score"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/score_team_one"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/score_team_one"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/score_team_two"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="@string/score_team_two"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/race_status"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.7"
-            android:gravity="center_vertical|right"
-            tools:ignore="RtlHardcoded">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@string/score_state"
-                android:scaleType="centerCrop"
-                android:src="@drawable/end" />
-        </LinearLayout>
+            android:layout_weight="0.5"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <View

@@ -1,6 +1,7 @@
 package com.hardy.jaffa.myapplication.presenter.api;
 
 import com.hardy.jaffa.myapplication.model.PlayerInfo;
+import com.hardy.jaffa.myapplication.model.RaceData;
 import com.hardy.jaffa.myapplication.model.RaceScoreState;
 import com.hardy.jaffa.myapplication.model.Token;
 import com.hardy.jaffa.myapplication.model.UserLoginState;
@@ -96,7 +97,10 @@ public interface ResponseInfoAPI {
                              @Field("phone") String phone,
                              @Field("password") String password);
 
-    @GET(Constant.RaceDataUrl)
-    @Headers("version:v3.0")
-    Call<RaceScoreState> getRaceData();
+    @GET(Constant.FocusRaceDataUrl)
+    Call<RaceData> getFocusRaceData();
+
+    @GET(Constant.HotRaceDataUrl)
+    Call<RaceData> getHotRaceData(@Query("datetime")
+                                                String datetime);
 }

@@ -16,8 +16,8 @@
     <string name="race_row">意甲第26轮</string>
     <string name="race_team_one">尤文图斯</string>
     <string name="race_team_two">史博尔</string>
-    <string name="score_team_one">3</string>
-    <string name="score_team_two">1</string>
+    <string name="score">0 - 0</string>
     <string name="today_time">今天 12月12日 星期二</string>
+    <string name="logo">Logo</string>
 
 </resources>

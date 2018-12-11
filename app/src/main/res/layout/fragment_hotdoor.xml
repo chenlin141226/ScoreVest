@@ -4,17 +4,10 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
-        android:padding="@dimen/dp_10"
-        android:text="@string/today_time"
-        android:background="#171717"
-        />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/score_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#292929"
+        />
 </LinearLayout>
