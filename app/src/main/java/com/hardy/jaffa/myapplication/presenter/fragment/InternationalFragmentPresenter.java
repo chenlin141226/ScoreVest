@@ -6,6 +6,7 @@ import com.hardy.jaffa.myapplication.model.RaceData;
 import com.hardy.jaffa.myapplication.presenter.api.ResponseInfoAPI;
 import com.hardy.jaffa.myapplication.ui.fragment.InternationalFragment;
 import com.hardy.jaffa.myapplication.utils.Constant;
+import com.hardy.jaffa.myapplication.utils.ToastUtil;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class InternationalFragmentPresenter {
 
             @Override
             public void onFailure(@NonNull Call<RaceData> call, @NonNull Throwable t) {
-
+                ToastUtil.ShowToast(fragment.getActivity(),"数据加载失败！请检查网络后重试！");
             }
         });
     }

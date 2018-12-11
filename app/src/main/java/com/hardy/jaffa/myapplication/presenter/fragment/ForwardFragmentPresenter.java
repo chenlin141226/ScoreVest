@@ -6,6 +6,7 @@ import com.hardy.jaffa.myapplication.model.ZixunInfo;
 import com.hardy.jaffa.myapplication.presenter.api.ResponseInfoAPI;
 import com.hardy.jaffa.myapplication.ui.fragment.ForwardFragment;
 import com.hardy.jaffa.myapplication.utils.Constant;
+import com.hardy.jaffa.myapplication.utils.ToastUtil;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class ForwardFragmentPresenter {
 
             @Override
             public void onFailure(Call<List<PlayerInfo>> call, Throwable t) {
-
+                ToastUtil.ShowToast(fragment.getActivity(),"数据加载失败！请检查网络后重试！");
             }
         });
     }
