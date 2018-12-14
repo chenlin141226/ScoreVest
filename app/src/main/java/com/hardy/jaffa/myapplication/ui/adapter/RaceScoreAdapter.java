@@ -29,8 +29,8 @@ public class RaceScoreAdapter extends BaseQuickAdapter<RaceData.DataBean.RaceBea
         holder.setText(R.id.race_team_two, item.getAwayteam());
         holder.setText(R.id.score, item.getScore());
         holder.setText(R.id.race_status, item.getStatus());
-        Glide.with(context).load(item.getHometeamlogo()).into((ImageView) holder.getView(R.id.team_one_logo));
-        Glide.with(context).load(item.getAwayteamlogo()).into((ImageView) holder.getView(R.id.team_two_logo));
+        Glide.with(context).load(item.getHometeamlogo()).fitCenter().into((ImageView) holder.getView(R.id.team_one_logo));
+        Glide.with(context).load(item.getAwayteamlogo()).fitCenter().into((ImageView) holder.getView(R.id.team_two_logo));
 
     }
 }

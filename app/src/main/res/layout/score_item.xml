@@ -52,7 +52,6 @@
                     android:id="@+id/team_one_logo"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:scaleType="centerCrop"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/logo" />
 
@@ -77,7 +76,6 @@
                     android:id="@+id/team_two_logo"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:scaleType="centerCrop"
                     android:layout_margin="5dp"
                     android:contentDescription="@string/logo" />
 
