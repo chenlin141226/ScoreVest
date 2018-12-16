@@ -32,6 +32,7 @@ public class RaceScoreAdapter extends BaseQuickAdapter<RaceData.DataBean.RaceBea
         Glide.with(context).load(item.getHometeamlogo()).fitCenter().placeholder(R.drawable.ic_image_loading)
                 .error(R.drawable.ic_empty_picture).into((ImageView) holder.getView(R.id.team_one_logo));
         Glide.with(context).load(item.getAwayteamlogo()).fitCenter()
+
                 .placeholder(R.drawable.ic_image_loading)
                 .error(R.drawable.ic_empty_picture).into((ImageView) holder.getView(R.id.team_two_logo));
 

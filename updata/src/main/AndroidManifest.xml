@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="update.platform.sports.com.updata" >
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <application>
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="update.race.score.com"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <!--元数据-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+
+
+    </application>
+</manifest>

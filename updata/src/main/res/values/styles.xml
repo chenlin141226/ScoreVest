@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+    <style name="Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+
+</resources>
